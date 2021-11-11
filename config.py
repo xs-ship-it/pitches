@@ -1,22 +1,24 @@
 class Config:
     """
-    parent configuration class
+    parent configurations class
     """
-    SECRET_kEY = 'felix'
-
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2:// postgres: access@localhost/pitches'
+    SECRET_KEY = "brian"
     DEBUG = True
 
 class Prodconfig(Config):
     """
-    production configuration
+    production cofiguration
     """
 
-class Devconfig(Config):
+
+class DevConfig(Config):
     """
     Development configuration
     """
     DEBUG = True
+
 config_options={
-    'development':Devconfig,
-    'production': Prodconfig
+    'development':DevConfig,
+    'production':Prodconfig,
 }
