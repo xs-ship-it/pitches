@@ -42,6 +42,8 @@ def save_user(self):
     db.session.commit(self)
 
     
+    return f'User {self.username}'
+
 @property
 def password(self):
         raise AttributeError('You cannot read the password attribute')
