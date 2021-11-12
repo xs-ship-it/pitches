@@ -4,23 +4,21 @@ from werkzeug.security import generate_password_hash,check_password_hash
 from flask_login import UserMixin
 from datetime import datetime
 
-
 @login_manager.user_loader
 def load_user(user_id):
         return User.query.get(user_id)
 
-class Pitch(db.Model):
-    __tablename__ = 'pitch'
+class Pitches(db.Model):
+    __tablename__ = 'pitches'
 
     id = db.Column(db.Integer,primary_key = True)
     description = db.Column(db.String(255))
     category= db.Column(db.String)
     date_posted = db.Column(db.DateTime,default=datetime.utcnow)
     
-def save_pitch(self):
+def save_pitches(self):
     db.session.add(self)
     db.session.commit(self)
-    
 class comments(db.Model):
     __tablename__='comments'
     id = db.Column(db.Integer,primary_key = True)
@@ -42,8 +40,7 @@ class User(UserMixin,db.Model):
 def save_user(self):
     db.session.add(self)
     db.session.commit(self)
-    
-  
+
     
 @property
 def password(self):
