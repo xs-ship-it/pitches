@@ -9,15 +9,15 @@ from datetime import datetime
 def load_user(user_id):
         return User.query.get(user_id)
 
-class Pitches(db.Model):
-    __tablename__ = 'pitches'
+class Pitch(db.Model):
+    __tablename__ = 'pitch'
 
     id = db.Column(db.Integer,primary_key = True)
     description = db.Column(db.String(255))
     category= db.Column(db.String)
     date_posted = db.Column(db.DateTime,default=datetime.utcnow)
     
-def save_pitches(self):
+def save_pitch(self):
     db.session.add(self)
     db.session.commit(self)
     
