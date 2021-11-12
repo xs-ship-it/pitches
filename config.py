@@ -3,7 +3,7 @@ class Config:
     parent configurations class
     """
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2:// postgres: access@localhost/pitches'
-    SECRET_KEY = "brian"
+    SECRET_KEY = "felix"
     DEBUG = True
 
 class Prodconfig(Config):
