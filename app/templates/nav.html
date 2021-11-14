@@ -1,0 +1,51 @@
+<div class="container-fluid">
+    
+    <div class="navbar mt-5 text-white bg-primary" role="navigation">
+        <div class="navbar">
+        <style>
+        .navbar{
+          display:flex;
+          padding:20px;
+          
+        }
+        .nav li a{
+            padding-right:100px;
+            color:white;
+            justify-content:space-between;
+            text-decoration:none;
+        }
+        h1{
+            padding-right:20px;
+        }
+            
+        
+        
+        </style>
+            <h1>PITCH APP<h1>
+            <ul class="nav " style="margin-top: 2rem; color: white;">
+                <li><a href="/">Home</a></li>
+                <li><a href="{{url_for('main.science_pitches')}}">Science</a></li>
+                <li><a href="{{url_for('main.conspiracy_theories')}}">Conspiracy_theories</a></li>
+                <li class="text-white"><a href="{{url_for('main.Technology_pitches')}}">Technology</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right" style="margin-top: 2rem;">
+                {% if current_user.is_authenticated %}
+                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                        aria-haspopup="true" aria-expanded="false">{{current_user.username| capitalize}} <span
+                            class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                         <li><a href="{{url_for('main.user_pitches',uname=current_user.username)}}">My Pitches</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="{{url_for('auth.logout')}}" style="color:black",>Sign out</a></li>
+                    </ul>
+                </li>
+                {% else %}
+                <li><a href="{{url_for('auth.login')}}">Sign in</a></li>
+                
+            </ul>
+            {%endif%}
+        </div>
+    </div>
+
+</div>

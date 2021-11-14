@@ -1,1 +1,51 @@
-<h1>welcome to my pitches</h1>
+{% extends 'base.html' %}
+{% import 'macros.html' as macro %}
+<!-- Styles block -->
+
+{%block styles%}
+{{super()}}
+
+{%endblock%}
+<!-- Content block -->
+{%block content%}
+
+<div class="container-fluid">
+    <h1> Pitches</h1>
+  
+    <a href="{{url_for('main.new_pitch')}}" class="btn btn-primary">ADD YOUR PITCH</a>
+    <style>
+    .card{
+        height:200px;
+        width:33%;
+    }
+    
+    .display{
+        display:flex;
+        flex-direction:row;
+
+    }
+    </style>
+    <div class"display">  
+       <div class="card">
+           <div class="well well-lg text-center">
+              <h3>Science Pitches</h3>
+              <a href="{{url_for('main.science_pitches')}}" class="btn btn-primary text-center">View</a>
+          </div>
+      </div>
+      <div class="card">
+          <div class="well text-center">
+              <h3>Conspiracy_theories</h3>
+              <a href="{{url_for('main.conspiracy_theories')}}" class="btn btn-primary -center">View</a>
+          </div>
+      </div>
+      <div class="card">
+          <div class="well well-lg text-center">
+              <h3>Technology Pitches</h3>
+              <a href="{{url_for('main.Technology_pitches')}}" class="btn btn-primary -center">View</a>
+          </div>
+       </div>
+    </div>  
+  </div>
+
+
+{%endblock%}

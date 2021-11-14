@@ -1,0 +1,48 @@
+<!-- { % extends 'base.html'% } -->
+{% import 'macros.html' as macro%}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block style %}    
+
+<link href="https://fonts.googleapis.com/css?family=Frank+Ruhl+Libre|Josefin+Slab|Righteous|Srisakdi&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+{%endblock%}
+<!-- Content block -->
+<div class="container">
+    {%block content%}
+    <body class="comment-section ">
+        
+<div class="container text-center">
+    
+        <h3>{{pitch.pitch_title}}</h3>
+        <hr>
+        <p>{{pitch.pitch_content}}</p>
+        <span>
+        <p>Posted on {{date}} by {{pitch.user.username| capitalize}}</p>
+        <a href="/pitch/{{pitch.id}}?like=1">
+            <i class="far fa-thumbs-up"></i>
+        </a>{{pitch.likes}} <a href="/pitch/{{pitch.id}}?dislike=1">
+            <i class="far fa-thumbs-down"></i>
+        </a>{{pitch.dislikes}}</span>
+
+    
+    <div class="row">
+        
+        <h4 class="">Comments:</h4>
+      
+          <div class="col-md-6">
+          {% if current_user.is_authenticated %}
+            {{ wtf.quick_form(comment_form) }}
+          </div> 
+          <div class="col-md-6">   
+          {%endif%}
+          {{macro.displayComments(comments)}}
+          </div>
+    </div>
+
+</div>
+</body>
+{%endblock%}
+</div>

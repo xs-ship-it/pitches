@@ -1,0 +1,24 @@
+{% extends 'base.html'%}
+{%import 'macros.html' as macro%}
+
+{% block content %}
+<div class="container text-center">
+    <div class="row">
+        <!-- displaying  Username-->
+        <h3> {{user.username| capitalize}} </h3>
+        <hr>
+        <div class="col text-center">
+            <p>Name: {{user.firstname}} {{user.lastname}} </p>
+            <p>No of piches: {{pitches_count}}</p>
+            <p>Date joined: {{date}}</p>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+              <h3> Pitches </h3>
+              <hr>
+               {{macro.displayPitches(pitches)}}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,4 +1,4 @@
-#!/home/moringa/flask/pitches/virtual/bin/python
+#!/home/moringa/lorna/Pitch-App/virtual/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
