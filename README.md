@@ -24,7 +24,3 @@ This is an application where the user is given the chance to give a meaningfull 
 * create a database and initialize it
 * create a migration and upgrade your database
 
-### Prerequisites
-* python3.6
-* pip
-* virtualenv
